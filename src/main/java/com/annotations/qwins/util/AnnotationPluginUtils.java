@@ -11,10 +11,6 @@ import java.util.stream.Collectors;
 
 public final class AnnotationPluginUtils {
 
-    private AnnotationPluginUtils() {
-        throw new UnsupportedOperationException("Утилитный класс — создание экземпляров запрещено");
-    }
-
     public static boolean isBlank(@Nullable String str) {
         return str == null || str.trim().isEmpty();
     }
