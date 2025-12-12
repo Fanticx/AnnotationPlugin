@@ -7,7 +7,7 @@
 Она позволяет полностью отказаться от ручного создания и поддержки файла `plugin.yml`. Всё, что нужно - добавить аннотации в главный класс вашего плагина. При компиляции процессор автоматически сгенерирует чистый и корректный `plugin.yml` в JAR-файле.
 
 
-## 🛠️ Установка
+##  Установка
 
 Добавьте зависимость в ваш проект. Последнюю версию можно найти по [ссылке](https://jitpack.io/#Fanticx/AnnotationPlugin).
 
@@ -92,19 +92,19 @@ import static com.annotations.qwins.annotations.enums.LoadOrder.STARTUP;
 @Depend("Vault")
 @SoftDepend("WorldEdit")
 @Command(
-    name = "hello",
-    description = "Команда приветствия",
-    aliases = {"hi", "privet"},
-    usage = "/hello [игрок]",
-    permission = "awesome.hello"
+        name = "hello",
+        description = "Команда приветствия",
+        aliases = {"hi", "privet"},
+        usage = "/hello [игрок]",
+        permission = "awesome.hello"
 )
 @Permission(
-    name = "awesome.hello",
-    description = "Разрешает использовать /hello",
-    defaultValue = PermissionDefault.OP
+        name = "awesome.hello",
+        description = "Разрешает использовать /hello",
+        defaultValue = PermissionDefault.OP
 )
 public class MyAwesomePlugin extends JavaPlugin {
-    
+
     @Override
     public void onEnable() {
         // Ваш код плагина
@@ -146,7 +146,7 @@ permissions:
 
 ---
 
-## Поддержка проекта
+## Для поддержки этого проекта поставьте звезды на этот репозиторий
 
 
 **Удачного work work work**
