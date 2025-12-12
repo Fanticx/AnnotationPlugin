@@ -4,7 +4,10 @@ import com.annotations.qwins.annotations.core.repeatable.Command;
 import com.annotations.qwins.annotations.core.repeatable.Permission;
 import com.annotations.qwins.annotations.enums.LoadOrder;
 import com.annotations.qwins.model.PluginMetadata;
-import com.annotations.qwins.util.StringUtils;
+import com.annotations.qwins.util.AnnotationPluginUtils;
+
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
@@ -15,6 +18,7 @@ public class PluginYmlBuilder {
         this.data = data;
     }
 
+    @NotNull
     public String build() {
         StringBuilder sb = new StringBuilder();
 
@@ -27,6 +31,7 @@ public class PluginYmlBuilder {
         append(sb, "website", data.website());
         append(sb, "prefix", data.prefix());
         append(sb, "api-version", data.apiVersion().getValue());
+
         if (data.loadOrder() != LoadOrder.POSTWORLD) {
             sb.append("load: ").append(data.loadOrder().name()).append("\n");
         }
@@ -41,8 +46,8 @@ public class PluginYmlBuilder {
         return sb.toString();
     }
 
-    private void append(StringBuilder sb, String key, String value) {
-        if (!StringUtils.isBlank(value)) {
+    private void append(StringBuilder sb, String key, @Nullable String value) {
+        if (!AnnotationPluginUtils.isBlank(value)) {
             sb.append(key).append(": ").append(value).append("\n");
         }
     }

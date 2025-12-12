@@ -5,6 +5,9 @@ import com.annotations.qwins.annotations.core.repeatable.Command;
 import com.annotations.qwins.annotations.core.repeatable.Permission;
 import com.annotations.qwins.annotations.enums.LoadOrder;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 import java.util.List;
 
 public final class PluginMetadata {
@@ -45,18 +48,18 @@ public final class PluginMetadata {
         this.mainClass = mainClass;
     }
 
-    public String name() { return name; }
-    public String version() { return version; }
-    public String description() { return description; }
-    public List<String> authors() { return authors; }
-    public String website() { return website; }
-    public String prefix() { return prefix; }
-    public Target apiVersion() { return apiVersion; }
-    public LoadOrder loadOrder() { return loadOrder; }
-    public List<String> libraries() { return libraries; }
-    public List<String> depend() { return depend; }
-    public List<String> softDepend() { return softDepend; }
-    public List<Command> commands() { return commands; }
-    public List<Permission> permissions() { return permissions; }
-    public String mainClass() { return mainClass; }
+    @NotNull public String name() { return name; }
+    @NotNull public String version() { return version; }
+    @Nullable public String description() { return description; }
+    @NotNull public List<String> authors() { return authors; }
+    @Nullable public String website() { return website; }
+    @Nullable public String prefix() { return prefix; }
+    @NotNull public Target apiVersion() { return apiVersion; }
+    @NotNull public LoadOrder loadOrder() { return loadOrder; }
+    @NotNull public List<String> libraries() { return libraries; }
+    @NotNull public List<String> depend() { return depend; }
+    @NotNull public List<String> softDepend() { return softDepend; }
+    @NotNull public List<Command> commands() { return commands; }
+    @NotNull public List<Permission> permissions() { return permissions; }
+    @NotNull public String mainClass() { return mainClass; }
 }

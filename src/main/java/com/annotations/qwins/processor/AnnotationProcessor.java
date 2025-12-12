@@ -32,8 +32,7 @@ public class AnnotationProcessor extends AbstractProcessor {
     @Override
     public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {
         for (Element element : roundEnv.getElementsAnnotatedWith(Name.class)) {
-            if (element instanceof TypeElement) {
-                TypeElement typeElement = (TypeElement) element;
+            if (element instanceof TypeElement typeElement) {
                 try {
                     PluginMetadata metadata = new MetadataExtractor(typeElement).extract();
                     String yaml = new PluginYmlBuilder(metadata).build();
