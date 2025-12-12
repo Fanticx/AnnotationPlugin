@@ -2,6 +2,7 @@ package com.annotations.qwins.builder;
 
 import com.annotations.qwins.annotations.core.repeatable.Command;
 import com.annotations.qwins.annotations.core.repeatable.Permission;
+import com.annotations.qwins.annotations.enums.LoadOrder;
 import com.annotations.qwins.model.PluginMetadata;
 import com.annotations.qwins.util.StringUtils;
 
@@ -26,7 +27,9 @@ public class PluginYmlBuilder {
         append(sb, "website", data.website());
         append(sb, "prefix", data.prefix());
         append(sb, "api-version", data.apiVersion().getValue());
-        append(sb, "load", data.loadOrder().name());
+        if (data.loadOrder() != LoadOrder.POSTWORLD) {
+            sb.append("load: ").append(data.loadOrder().name()).append("\n");
+        }
 
         appendList(sb, "libraries", data.libraries());
         appendList(sb, "depend", data.depend());

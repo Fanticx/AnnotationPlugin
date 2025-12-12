@@ -37,22 +37,18 @@ tasks.withType<JavaCompile> {
     options.encoding = "UTF-8"
 }
 
-tasks.register<Jar>("annotationsJar") {
-    from(sourceSets.main.get().output)
-    include("com/annotations/qwins/annotations/**")
-    archiveClassifier.set("annotations")
-}
-
 publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = "ru.qwins"
+            artifactId = "Annotations"
+            from(components["java"])
+        }
+    }
     repositories {
         maven {
             name = "local"
             url = uri(layout.buildDirectory.dir("repos/local"))
-        }
-    }
-    publications {
-        create<MavenPublication>("maven") {
-            from(components["java"])
         }
     }
 }
