@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 public final class AnnotationPluginUtils {
 
     private AnnotationPluginUtils() {
-        throw new UnsupportedOperationException("Утилитный класс — создание экземпляров запрещено");
+        throw new UnsupportedOperationException("Утилитный класс");
     }
 
     public static boolean isBlank(@Nullable String str) {
