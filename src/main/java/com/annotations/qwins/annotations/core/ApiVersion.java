@@ -9,6 +9,7 @@ public @interface ApiVersion {
     Target value() default Target.v1_21;
 
     enum Target {
+        v1_12("1.12"),
         v1_13("1.13"),
         v1_14("1.14"),
         v1_15("1.15"),
